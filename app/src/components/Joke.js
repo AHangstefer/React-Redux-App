@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import {getJoke} from "../actions/allAction"
+import App from "../App.css"
 
 const Joke =({ getJoke, joke, isFetching}) => {
     useEffect(()=> {
@@ -12,15 +13,16 @@ const Joke =({ getJoke, joke, isFetching}) => {
     }
 
     return(
-        <>
-            <h2>Joke: {joke} </h2>
-            <button onClick= {getJoke}>Get New Joke</button>
-        </>
+        <div className = "joke">
+            <h2>Activity: {joke} </h2>
+            <button onClick= {getJoke}>Get New Activity</button>
+        </div>
     );
 };
 
 const mapStateToProps = (state) =>{
-    return {joke: state.joke, isFetching: state.isFetching};
+    return {joke: state.joke, 
+            isFetching: state.isFetching};
 };
 
 const mapDispatchToProps = {getJoke};

@@ -17,13 +17,17 @@ export const updateTitle = (updateTitle)=>{
     return {type: UPDATE_TITLE, payload: updateTitle}
 };
 
+const headers = {
+    Accept: "application/json"
+};
+
 export const getJoke = () => (dispatch) => {
     console.log("getJoke action");
     dispatch({type: FETCHING_JOKE_START });
     axios
-    .get(`https://icanhazdadjoke.com/`)
+    .get(`https://www.boredapi.com/api/activity/`, {headers: headers})
     .then((res)=>{
-        dispatch({type: FETCHING_JOKE_SUCCESS, payload: res.data.joke});
+        dispatch({type: FETCHING_JOKE_SUCCESS, payload: res.data.activity});
         console.log("Yay!! Success: ",res);
     })
     .catch((err)=> {

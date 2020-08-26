@@ -17,7 +17,7 @@ const Title = (props) => {
 
     
        
-                <div>
+                <div className = "title">
                     <h2>{newTitle}</h2>
                     <input 
                         className = "title"
